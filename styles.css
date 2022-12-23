@@ -1,0 +1,49 @@
+*{
+    font-family: Roboto, Arial, sans-serif;
+    color: aliceblue;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.header{
+    margin-top: 30px;
+    font-family: Zen Dots;
+    font-size: 48px;
+}
+
+.main{
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    column-gap: 250px;
+}
+
+.menu{
+    max-width: 150px;
+    background-color: rgb(35,35,35);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sketchPad{
+    width: 500px;
+    height: 500px;    
+    background-color: rgb(35,35,35);
+    padding: 10px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.footer{
+    margin-bottom: 10px;
+    font-size: 18px;
+}
