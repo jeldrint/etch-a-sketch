@@ -13,7 +13,7 @@ document.getElementById('gridRange').oninput = function () {
 function gridCreation(){
     let numberOfGrid = document.getElementById('gridRange').value;
 
-    let dimension = (750-(numberOfGrid*2.67)) / numberOfGrid; //the minus part is for the border size
+    let dimension = (750-(numberOfGrid*4)) / numberOfGrid; //the minus part is for the border size
 
     for (let i =0; i < numberOfGrid; i++){
         for (let j =0; j< numberOfGrid; j++){
@@ -22,7 +22,7 @@ function gridCreation(){
             gridBox.style.backgroundColor = "aliceblue";
             gridBox.style.width = `${dimension}px`;
             gridBox.style.height = `${dimension}px`;
-            gridBox.style.border = "solid 1px rgb(0,0,0,0.1)";
+            gridBox.style.border = "dotted 2px rgb(0,0,0,0.1)";
 
             sketchPad.appendChild(gridBox);
         }
