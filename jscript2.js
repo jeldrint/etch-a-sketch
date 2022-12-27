@@ -13,7 +13,7 @@ document.getElementById('gridRange').oninput = function () {
 function gridCreation(){
     let numberOfGrid = document.getElementById('gridRange').value;
 
-    let dimension = (700-(numberOfGrid*2)) / numberOfGrid; //the minus part is for the border size
+    let dimension = (750-(numberOfGrid*2.67)) / numberOfGrid; //the minus part is for the border size
 
     for (let i =0; i < numberOfGrid; i++){
         for (let j =0; j< numberOfGrid; j++){
