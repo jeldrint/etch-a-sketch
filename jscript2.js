@@ -3,6 +3,10 @@ const sketchPad = document.querySelector('.sketchPad');
 
 let sliderVal = 0;
 
+let x = 0;
+let y = 0;
+let isDrawing = false;
+
 
 //HERE IS THE SECTION OF GRID CREATION
 document.getElementById('gridRange').oninput = function () {
@@ -37,7 +41,31 @@ function resetGrid() {
 }
 
 //HERE IS THE SECTION OF GRID COLORING
-const buttonPressed = (e) => {
-    console.log(e.target);
+/* const buttonPressed = (e) => {
+    e.target.style.backgroundColor = "black";
 }
-sketchPad.addEventListener("click", buttonPressed);
+ */
+sketchPad.addEventListener("mousedown", (e) =>{
+    e.target.style.backgroundColor = "black";
+    x = e.offsetX;
+    y = e.offsetY;
+    isDrawing = true;
+});
+
+sketchPad.addEventListener("mousemove", (e) =>{
+    if (isDrawing){
+        e.target.style.backgroundColor = "black";
+        x = e.offsetX;
+        y = e.offsetY;
+    }
+});
+
+window.addEventListener("mouseup", () =>{
+    x = 0;
+    y = 0;
+    isDrawing = false;
+});
+
+sketchPad.addEventListener("drag", (e)=>{
+
+});
