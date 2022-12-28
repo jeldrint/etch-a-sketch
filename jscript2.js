@@ -1,10 +1,12 @@
 const main = document.querySelector('main');
 const sketchPad = document.querySelector('.sketchPad');
+const gridSize = document.querySelector('#grid-size');
+const colorSwitch = document.querySelector('#color-switch');
 
 let sliderVal = 0;
-
-let x = 0;
-let y = 0;
+let gridColor = "black";
+let xCoord = 0;
+let yCoord = 0;
 let isDrawing = false;
 
 
@@ -31,7 +33,7 @@ function gridCreation(){
             sketchPad.appendChild(gridBox);
         }
     }
-    console.log(numberOfGrid);
+    gridSize.textContent = `Grid: ${numberOfGrid} x ${numberOfGrid} px`
 }
 
 function resetGrid() {
@@ -40,32 +42,49 @@ function resetGrid() {
     }
 }
 
-//HERE IS THE SECTION OF GRID COLORING
-/* const buttonPressed = (e) => {
-    e.target.style.backgroundColor = "black";
+function randomizeColor(){
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+
+    gridColor = `rgb(${r},${g},${b})`;
+
+
 }
- */
+
+//THIS IS FOR RANDOM COLOR TOGGLE
+colorSwitch.children[0].addEventListener("click", () =>{
+    if (colorSwitch.children[0].checked){
+        randomizeColor();
+        return;
+    }else{
+        gridColor = "black";
+        return;
+    }
+});
+
+
+//THIS IS FOR DRAWING
 sketchPad.addEventListener("mousedown", (e) =>{
-    e.target.style.backgroundColor = "black";
-    x = e.offsetX;
-    y = e.offsetY;
+    e.target.style.backgroundColor = gridColor;
+    xCoord = e.offsetX;
+    yCoord = e.offsetY;
     isDrawing = true;
 });
 
 sketchPad.addEventListener("mousemove", (e) =>{
     if (isDrawing){
-        e.target.style.backgroundColor = "black";
-        x = e.offsetX;
-        y = e.offsetY;
+        if (colorSwitch.children[0].checked){
+            randomizeColor();
+        }    
+        e.target.style.backgroundColor = gridColor;
+        xCoord = e.offsetX;
+        yCoord = e.offsetY;
     }
 });
 
 window.addEventListener("mouseup", () =>{
-    x = 0;
-    y = 0;
+    xCoord = 0;
+    yCoord = 0;
     isDrawing = false;
-});
-
-sketchPad.addEventListener("drag", (e)=>{
-
 });

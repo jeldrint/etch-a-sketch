@@ -10,20 +10,31 @@
 </head>
 
 <body style="background-color: rgb(23, 23, 23);">
-  <header class="header">Etch A Sketch</header>
+  <div class="container">
+    <header class="header">Etch A Sketch</header>
 
-  <main class="main">
-    <div class="menu">
-      <input type="range" class="size-slider" id="gridRange" min="1" max="60" value="100" step="1">
-    </div>
-    <div class="sketchPad"></div>
+    <main class="main">
+      <div class="menu">
+        <div class="button-option">
+          <span>Random Colors</span>  
+          <label class="switch" id="color-switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div>
+          <input type="range" class="size-slider" id="gridRange" min="1" max="50" value="1">
+          <span id="grid-size">Grid: </span>
+        </div>
+      </div>
+      <div class="sketchPad"></div>
+    </main>
 
-  </main>
-
-  <footer class="footer">&#169; 2022 &middot; Etch a Sketch &middot; TOP Project of jeldrint </footer>
-
+    <footer class="footer">&#169; 2022 &middot; Etch a Sketch &middot; TOP Project of jeldrint </footer>
+  </div>
+  
   <script src="jscript2.js">
-      // Your JavaScript goes here
+    // Your JavaScript goes here
   </script>
 </body>
 </html>
